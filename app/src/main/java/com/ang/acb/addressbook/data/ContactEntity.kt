@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "contact")
 data class ContactEntity(
-    @PrimaryKey
-    val id: Long,
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = 0L,
     @ColumnInfo(name = "first_name")
     val firstName: String,
     @ColumnInfo(name = "last_name")

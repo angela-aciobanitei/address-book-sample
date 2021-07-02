@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ang.acb.addressbook.R
-import com.ang.acb.addressbook.domain.Contact
 import com.ang.acb.addressbook.domain.SaveContactUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -24,18 +23,16 @@ class AddContactViewModel @Inject constructor(
     val loading: LiveData<Boolean> = _loading
 
     fun saveContact() {
-        val mockContact = Contact(
-            id = 1234,
-            "Jane",
-            "Doe",
-            "jane.doe@email.com", // todo verify email with regex
-            "+44 0123456789",
-            "YO11 1AA"
-        )
         viewModelScope.launch {
             _loading.postValue(true)
             try {
-                val newContactId = saveContactUseCase(mockContact)
+                val newContactId = saveContactUseCase(
+                    "Jane",
+                    "Doe",
+                    "jane.doe@email.com", // todo verify email with regex
+                    "+44 0123456789",
+                    "YO11 1AA"
+                )
                 Timber.d("asd inserted contact with ID=$newContactId")
             } catch (e: Exception) {
                 Timber.e(e)

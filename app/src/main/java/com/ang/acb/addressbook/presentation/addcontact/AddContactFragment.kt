@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.ang.acb.addressbook.R
@@ -32,6 +33,7 @@ class AddContactFragment : Fragment(R.layout.fragment_add_contact) {
         super.onViewCreated(view, savedInstanceState)
         binding.saveContactButton.setOnClickListener {
             viewModel.saveContact()
+            observeData()
         }
     }
 

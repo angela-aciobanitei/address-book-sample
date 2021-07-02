@@ -55,8 +55,9 @@ class ContactsFragment : Fragment() {
     private fun observeData() {
         viewModel.contacts.observe(viewLifecycleOwner, { contacts ->
             binding.noContactsHint.isVisible = contacts.isEmpty()
-            binding.contactsText.text = contacts.toString()
-            // todo show items in rv
+            // todo show items in rv instead
+            binding.contactsText.isVisible = contacts.isNotEmpty()
+            binding.contactsText.text = contacts.map { it.id }.toString()
         })
 
         viewModel.loading.observe(viewLifecycleOwner, {
