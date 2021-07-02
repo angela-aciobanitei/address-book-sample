@@ -3,4 +3,7 @@
     <string name="contacts_fragment_label">Address Book</string>
     <string name="add_contact_fragment_label">Add New Contact</string>
     <string name="add_contact_menu_item_label">Add new contact</string>
+    <string name="get_contacts_error_message">Cannot get contacts </string>
+    <string name="get_contact_details_error_message">Cannot get contact details </string>
+    <string name="save_contact_details_error_message">Cannot save contact details </string>
 </resources>
