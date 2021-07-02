@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.ang.acb.addressbook.R
 import com.ang.acb.addressbook.databinding.FragmentAddContactBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,11 +30,24 @@ class AddContactFragment : Fragment(R.layout.fragment_add_contact) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.saveContactButton.setOnClickListener {
+            viewModel.saveContact()
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun observeData() {
+        viewModel.loading.observe(viewLifecycleOwner, {
+            binding.progressBar.isVisible = it
+            binding.saveContactButton.isEnabled = !it
+        })
+
+        viewModel.message.observe(viewLifecycleOwner, {
+            Snackbar.make(requireView(), it, Snackbar.LENGTH_SHORT).show()
+        })
     }
 }
