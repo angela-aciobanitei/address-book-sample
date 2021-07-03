@@ -1,4 +1,4 @@
-package com.ang.acb.addressbook.presentation.contactlist
+package com.ang.acb.addressbook.presentation.contacts
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil

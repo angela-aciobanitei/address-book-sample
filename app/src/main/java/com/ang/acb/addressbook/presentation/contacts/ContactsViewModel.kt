@@ -1,4 +1,4 @@
-package com.ang.acb.addressbook.presentation.contactlist
+package com.ang.acb.addressbook.presentation.contacts
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

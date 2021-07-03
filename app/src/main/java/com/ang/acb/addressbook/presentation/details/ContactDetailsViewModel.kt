@@ -1,4 +1,4 @@
-package com.ang.acb.addressbook.presentation.contactdetails
+package com.ang.acb.addressbook.presentation.details
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.ang.acb.addressbook.presentation.addcontact
+package com.ang.acb.addressbook.presentation.create
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,17 +9,17 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.ang.acb.addressbook.R
-import com.ang.acb.addressbook.databinding.FragmentAddContactBinding
+import com.ang.acb.addressbook.databinding.FragmentCreateContactBinding
 import com.ang.acb.addressbook.presentation.utils.EventObserver
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AddContactFragment : Fragment(R.layout.fragment_add_contact) {
+class CreateContactFragment : Fragment(R.layout.fragment_create_contact) {
 
-    private val viewModel: AddContactViewModel by viewModels()
+    private val viewModel: CreateContactViewModel by viewModels()
 
-    private var _binding: FragmentAddContactBinding? = null
+    private var _binding: FragmentCreateContactBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -27,7 +27,7 @@ class AddContactFragment : Fragment(R.layout.fragment_add_contact) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAddContactBinding.inflate(inflater, container, false)
+        _binding = FragmentCreateContactBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -54,12 +54,12 @@ class AddContactFragment : Fragment(R.layout.fragment_add_contact) {
         })
 
         viewModel.navigation.observe(viewLifecycleOwner, EventObserver {
+            val navHostFragment = requireActivity().supportFragmentManager
+                .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            val navController = navHostFragment.navController
+
             when (it) {
-                is AddContactViewModel.Navigation.Up -> {
-                    val navHostFragment = requireActivity().supportFragmentManager
-                        .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-                    navHostFragment.navController.navigateUp()
-                }
+                is CreateContactViewModel.Navigation.Up -> navController.navigateUp()
             }
         })
     }

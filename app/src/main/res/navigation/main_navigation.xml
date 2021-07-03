@@ -6,25 +6,25 @@
 
     <fragment
         android:id="@+id/contactsFragment"
-        android:name="com.ang.acb.addressbook.presentation.contactlist.ContactsFragment"
+        android:name="com.ang.acb.addressbook.presentation.contacts.ContactsFragment"
         android:label="@string/contacts_fragment_label">
 
         <action
             android:id="@+id/action_contacts_to_addContact"
-            app:destination="@id/addContactFragment" />
+            app:destination="@id/createContactFragment" />
         <action
             android:id="@+id/action_contacts_to_contactDetails"
             app:destination="@id/contactDetailsFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/addContactFragment"
-        android:name="com.ang.acb.addressbook.presentation.addcontact.AddContactFragment"
+        android:id="@+id/createContactFragment"
+        android:name="com.ang.acb.addressbook.presentation.create.CreateContactFragment"
         android:label="@string/add_contact_fragment_label" />
 
     <fragment
         android:id="@+id/contactDetailsFragment"
-        android:name="com.ang.acb.addressbook.presentation.contactdetails.ContactDetailsFragment">
+        android:name="com.ang.acb.addressbook.presentation.details.ContactDetailsFragment">
         <argument
             android:name="contactId"
             app:argType="long" />

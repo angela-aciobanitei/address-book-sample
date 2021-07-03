@@ -1,4 +1,4 @@
-package com.ang.acb.addressbook.presentation.contactlist
+package com.ang.acb.addressbook.presentation.contacts
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

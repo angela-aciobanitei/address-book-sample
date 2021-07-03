@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">AddressBook</string>
     <string name="contacts_fragment_label">Address Book</string>
-    <string name="add_contact_fragment_label">Add New Contact</string>
-    <string name="add_contact_menu_item_label">Add new contact</string>
+    <string name="add_contact_fragment_label">Create Contact</string>
+    <string name="add_contact_menu_item_label">Create contact</string>
     <string name="get_contacts_error_message">Cannot get contacts </string>
     <string name="get_contact_details_error_message">Cannot get contact details </string>
     <string name="save_contact_details_error_message">Cannot save contact details </string>
@@ -12,7 +12,7 @@
     <string name="email_hint">Email</string>
     <string name="phone_number_hint">Phone number</string>
     <string name="address_hint">Address</string>
-    <string name="save_contact_button_label">Save Contact</string>
+    <string name="save_contact_button_label">Save</string>
     <string name="invalid_email_error">Invalid email</string>
     <string name="required_field_error">Required</string>
 </resources>

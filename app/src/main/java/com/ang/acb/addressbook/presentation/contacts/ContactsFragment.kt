@@ -1,4 +1,4 @@
-package com.ang.acb.addressbook.presentation.contactlist
+package com.ang.acb.addressbook.presentation.contacts
 
 import android.os.Bundle
 import android.view.*
@@ -81,11 +81,13 @@ class ContactsFragment : Fragment() {
         })
 
         viewModel.navigation.observe(viewLifecycleOwner, EventObserver {
+            val navHostFragment = requireActivity().supportFragmentManager
+                .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            val navController = navHostFragment.navController
+
             when (it) {
                 is ContactsViewModel.Navigation.ToDetails -> {
-                    val navHostFragment = requireActivity().supportFragmentManager
-                        .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-                    navHostFragment.navController.navigate(
+                    navController.navigate(
                         ContactsFragmentDirections.actionContactsToContactDetails(it.id)
                     )
                 }

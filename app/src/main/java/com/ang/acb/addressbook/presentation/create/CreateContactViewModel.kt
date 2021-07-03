@@ -1,4 +1,4 @@
-package com.ang.acb.addressbook.presentation.addcontact
+package com.ang.acb.addressbook.presentation.create
 
 import android.util.Patterns
 import androidx.lifecycle.LiveData
@@ -14,7 +14,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class AddContactViewModel @Inject constructor(
+class CreateContactViewModel @Inject constructor(
     private val saveContactUseCase: SaveContactUseCase,
 ) : ViewModel() {
 
