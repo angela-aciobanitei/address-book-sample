@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">AddressBook</string>
     <string name="contacts_fragment_label">Address Book</string>
-    <string name="add_contact_fragment_label">Create Contact</string>
-    <string name="add_contact_menu_item_label">Create contact</string>
+    <string name="contact_details_fragment_label">Details</string>
+    <string name="create_contact_fragment_label">Create Contact</string>
+    <string name="create_contact_menu_item_label">Create contact</string>
     <string name="get_contacts_error_message">Cannot get contacts </string>
     <string name="get_contact_details_error_message">Cannot get contact details </string>
     <string name="save_contact_details_error_message">Cannot save contact details </string>

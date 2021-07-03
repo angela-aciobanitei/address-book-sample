@@ -8,7 +8,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.onNavDestinationSelected
-import androidx.recyclerview.widget.DividerItemDecoration
 import com.ang.acb.addressbook.R
 import com.ang.acb.addressbook.databinding.FragmentContactsBinding
 import com.ang.acb.addressbook.presentation.utils.EventObserver
@@ -39,7 +38,7 @@ class ContactsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setHasOptionsMenu(true)
-        initAdapter()
+        setupRecyclerView()
         observeData()
     }
 
@@ -58,10 +57,7 @@ class ContactsFragment : Fragment() {
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 
-    private fun initAdapter() {
-        val itemDecoration = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
-        binding.rvContacts.addItemDecoration(itemDecoration)
-
+    private fun setupRecyclerView() {
         contactsAdapter = ContactsAdapter { viewModel.onContactClick(it) }
         binding.rvContacts.adapter = contactsAdapter
     }

@@ -8,10 +8,11 @@
 
     <TextView
         android:id="@+id/tvName"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:drawablePadding="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:drawableStartCompat="@drawable/ic_account_circle_24"
         app:drawableTint="@color/purple_200"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,10 +22,11 @@
 
     <TextView
         android:id="@+id/tvEmail"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:drawablePadding="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:drawableStartCompat="@drawable/ic_email_24"
         app:drawableTint="@color/purple_200"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,10 +36,11 @@
 
     <TextView
         android:id="@+id/tvPhoneNumber"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:drawablePadding="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:drawableStartCompat="@drawable/ic_phone_24"
         app:drawableTint="@color/purple_200"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,10 +50,11 @@
 
     <TextView
         android:id="@+id/tvAddress"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:drawablePadding="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:drawableStartCompat="@drawable/ic_location_24"
         app:drawableTint="@color/purple_200"
         app:layout_constraintEnd_toEndOf="parent"

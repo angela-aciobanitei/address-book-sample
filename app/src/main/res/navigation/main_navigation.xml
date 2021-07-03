@@ -20,11 +20,12 @@
     <fragment
         android:id="@+id/createContactFragment"
         android:name="com.ang.acb.addressbook.presentation.create.CreateContactFragment"
-        android:label="@string/add_contact_fragment_label" />
+        android:label="@string/create_contact_fragment_label" />
 
     <fragment
         android:id="@+id/contactDetailsFragment"
-        android:name="com.ang.acb.addressbook.presentation.details.ContactDetailsFragment">
+        android:name="com.ang.acb.addressbook.presentation.details.ContactDetailsFragment"
+        android:label="@string/contact_details_fragment_label">
         <argument
             android:name="contactId"
             app:argType="long" />
