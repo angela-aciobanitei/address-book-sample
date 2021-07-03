@@ -11,9 +11,23 @@ class ContactsDataSource @Inject constructor(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) {
 
-    suspend fun saveContact(contact: ContactEntity): Long {
+    suspend fun saveContact(
+        firstName: String,
+        lastName: String,
+        email: String,
+        phoneNumber: String,
+        address: String,
+    ): Long {
         return withContext(ioDispatcher) {
-            contactDao.insert(contact)
+            contactDao.insert(
+                ContactEntity(
+                    firstName = firstName,
+                    lastName = lastName,
+                    email = email,
+                    phoneNumber = phoneNumber,
+                    address = address
+                )
+            )
         }
     }
 

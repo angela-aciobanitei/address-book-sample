@@ -13,11 +13,3 @@ fun ContactEntity.toContact() = Contact(
 
 fun List<ContactEntity>.toContacts() = this.map { it.toContact() }
 
-fun Contact.toContactEntity() = ContactEntity(
-    id = id,
-    firstName = firstName,
-    lastName = lastName,
-    email = email,
-    phoneNumber = phoneNumber,
-    address = address
-)

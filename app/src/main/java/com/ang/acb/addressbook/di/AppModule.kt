@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.room.Room
 import com.ang.acb.addressbook.data.ContactDao
 import com.ang.acb.addressbook.data.ContactDatabase
-import com.ang.acb.addressbook.data.ContactRepository
-import com.ang.acb.addressbook.domain.ContactGateway
+import com.ang.acb.addressbook.data.ContactsRepository
+import com.ang.acb.addressbook.domain.ContactsGateway
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,8 +21,8 @@ object AppModule {
     @Provides
     @Singleton
     fun provideContactGateway(
-        contactRepository: ContactRepository
-    ): ContactGateway = contactRepository
+        contactsRepository: ContactsRepository
+    ): ContactsGateway = contactsRepository
 
     @Singleton
     @Provides

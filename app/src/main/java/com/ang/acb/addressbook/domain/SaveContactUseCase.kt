@@ -2,9 +2,8 @@ package com.ang.acb.addressbook.domain
 
 import javax.inject.Inject
 
-// todo add super cases
 class SaveContactUseCase @Inject constructor(
-    private val contactGateway: ContactGateway,
+    private val contactsGateway: ContactsGateway,
 ) {
     suspend operator fun invoke(
         firstName: String,
@@ -13,12 +12,12 @@ class SaveContactUseCase @Inject constructor(
         phoneNumber: String,
         address: String,
     ): Long {
-        return contactGateway.saveContact(
+        return contactsGateway.saveContact(
             firstName = firstName,
             lastName = lastName,
             email = email,
             phoneNumber = phoneNumber,
-            address = address
+            address = address,
         )
     }
 }

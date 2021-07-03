@@ -2,7 +2,7 @@ package com.ang.acb.addressbook.domain
 
 import kotlinx.coroutines.flow.Flow
 
-interface ContactGateway {
+interface ContactsGateway {
     suspend fun saveContact(
         firstName: String,
         lastName: String,

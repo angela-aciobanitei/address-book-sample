@@ -39,7 +39,6 @@ class ContactDetailsViewModel @Inject constructor(
                 .collect {
                     _contact.postValue(it)
                     _loading.postValue(false)
-                    Timber.d("asd contact: $it")
                 }
         }
     }
