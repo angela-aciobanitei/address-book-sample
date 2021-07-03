@@ -18,11 +18,11 @@ class AddContactViewModel @Inject constructor(
     private val saveContactUseCase: SaveContactUseCase,
 ) : ViewModel() {
 
-    private val _message: MutableLiveData<Event<Int>> = MutableLiveData()
-    val message: LiveData<Event<Int>> = _message
-
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
+
+    private val _message: MutableLiveData<Event<Int>> = MutableLiveData()
+    val message: LiveData<Event<Int>> = _message
 
     private val _navigation = MutableLiveData<Event<Navigation>>()
     val navigation: LiveData<Event<Navigation>> = _navigation

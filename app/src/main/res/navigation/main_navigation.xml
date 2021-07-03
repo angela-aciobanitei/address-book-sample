@@ -10,10 +10,10 @@
         android:label="@string/contacts_fragment_label">
 
         <action
-            android:id="@+id/action_contactsFragment_to_addContactFragment"
+            android:id="@+id/action_contacts_to_addContact"
             app:destination="@id/addContactFragment" />
         <action
-            android:id="@+id/action_contactsFragment_to_contactDetailsFragment"
+            android:id="@+id/action_contacts_to_contactDetails"
             app:destination="@id/contactDetailsFragment" />
     </fragment>
 
