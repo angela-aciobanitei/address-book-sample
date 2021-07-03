@@ -6,4 +6,13 @@
     <string name="get_contacts_error_message">Cannot get contacts </string>
     <string name="get_contact_details_error_message">Cannot get contact details </string>
     <string name="save_contact_details_error_message">Cannot save contact details </string>
+    <string name="save_contact_details_success_message">Contact saved successfully </string>
+    <string name="first_name_hint">First name</string>
+    <string name="last_name_hint">Last name</string>
+    <string name="email_hint">Email</string>
+    <string name="phone_number_hint">Phone number</string>
+    <string name="address_hint">Address</string>
+    <string name="save_contact_button_label">Save Contact</string>
+    <string name="invalid_email_error">Invalid email</string>
+    <string name="required_field_error">Required</string>
 </resources>

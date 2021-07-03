@@ -2,6 +2,7 @@ package com.ang.acb.addressbook.domain
 
 import javax.inject.Inject
 
+// todo add super cases
 class SaveContactUseCase @Inject constructor(
     private val contactGateway: ContactGateway,
 ) {
