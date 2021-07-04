@@ -47,11 +47,20 @@ android {
     }
 
     // Build fails after adding the test coroutines dependency
-    // https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-debug#build-failures-due-to-duplicate-resource-files
     // https://github.com/Kotlin/kotlinx.coroutines/issues/2023
     packagingOptions {
         exclude 'META-INF/AL2.0'
         exclude 'META-INF/LGPL2.1'
+    }
+
+    // Sharing code between unit tests and instrumentation tests
+    sourceSets {
+        androidTest {
+            java.srcDirs += "src/sharedTest/java"
+        }
+        test {
+            java.srcDirs += "src/sharedTest/java"
+        }
     }
 }
 

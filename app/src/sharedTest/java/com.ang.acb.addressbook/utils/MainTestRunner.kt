@@ -14,3 +14,4 @@ class MainTestRunner : AndroidJUnitRunner() {
         return super.newApplication(cl, HiltTestApplication::class.java.name, context)
     }
 }
+
