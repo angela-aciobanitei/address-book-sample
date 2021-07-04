@@ -1,10 +1,10 @@
-package com.ang.acb.addressbook.presentation.create
+package com.ang.acb.addressbook.domain
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.ang.acb.addressbook.FakeContactsRepository
-import com.ang.acb.addressbook.domain.SaveContactUseCase
 import com.ang.acb.addressbook.utils.TestCoroutineRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.notNullValue
@@ -14,10 +14,9 @@ import org.junit.Rule
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class CreateContactViewModelTest {
-
+class GetContactUseCaseTest {
     // Subject under test
-    private lateinit var viewModel: CreateContactViewModel
+    private lateinit var useCase: GetContactUseCase
 
     // Use a fake repository to be injected into the use case
     private lateinit var fakeRepository: FakeContactsRepository
@@ -31,32 +30,34 @@ class CreateContactViewModelTest {
     var instantExecutorRule = InstantTaskExecutorRule()
 
     @Before
-    fun setupViewModel() {
+    fun setup() {
         fakeRepository = FakeContactsRepository()
-        viewModel = CreateContactViewModel(SaveContactUseCase(fakeRepository))
+        useCase = GetContactUseCase(fakeRepository)
     }
 
     @Test
-    fun testSaveNewContact() {
+    fun testGetContact() {
         testCoroutineRule.runBlockingTest {
             // Given a new contact that is saved
-            val firstName = "Jane"
-            val lastName = "Doe"
-            val email = "janedoe@email.com"
+            val firstName = "Joe"
+            val lastName = "Smith"
+            val email = "joe.smith@email.com"
             val phoneNumber = "12345"
             val address = "YO11 1AL"
-            viewModel.saveContact(firstName, lastName, email, phoneNumber, address)
+            val testId =
+                fakeRepository.saveContact(firstName, lastName, email, phoneNumber, address)
 
             // When the contact is retrieved
-            val loaded = fakeRepository.contacts.values.first()
+            val loaded = useCase(testId).first()
 
             // Then the loaded data contains the expected values
             assertThat(loaded, notNullValue())
-            assertThat(loaded.firstName, `is`(firstName))
-            assertThat(loaded.lastName, `is`(lastName))
-            assertThat(loaded.email, `is`(email))
-            assertThat(loaded.phoneNumber, `is`(phoneNumber))
-            assertThat(loaded.address, `is`(address))
+            assertThat(loaded?.id, `is`(testId))
+            assertThat(loaded?.firstName, `is`(firstName))
+            assertThat(loaded?.lastName, `is`(lastName))
+            assertThat(loaded?.email, `is`(email))
+            assertThat(loaded?.phoneNumber, `is`(phoneNumber))
+            assertThat(loaded?.address, `is`(address))
         }
     }
 }

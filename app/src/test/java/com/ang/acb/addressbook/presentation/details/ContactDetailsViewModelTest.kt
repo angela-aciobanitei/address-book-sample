@@ -26,7 +26,7 @@ class ContactDetailsViewModelTest {
 
     // Sets the main coroutines dispatcher for unit testing
     @get:Rule
-    var mainCoroutineRule = TestCoroutineRule()
+    var testCoroutineRule = TestCoroutineRule()
 
     // Executes each task synchronously using Architecture Components
     @get:Rule
@@ -51,7 +51,7 @@ class ContactDetailsViewModelTest {
         }
 
         // Pause dispatcher so we can verify initial values
-        mainCoroutineRule.pauseDispatcher()
+        testCoroutineRule.pauseDispatcher()
 
         // Trigger loading of contact
         viewModel.getContact(id)
@@ -61,7 +61,7 @@ class ContactDetailsViewModelTest {
             assertThat(viewModel.loading.getOrAwaitValue(), `is`(true))
 
             // Execute pending coroutines actions
-            mainCoroutineRule.resumeDispatcher()
+            testCoroutineRule.resumeDispatcher()
 
             // Then progress indicator is hidden
             assertThat(viewModel.loading.getOrAwaitValue(), `is`(false))

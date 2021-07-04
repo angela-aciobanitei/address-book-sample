@@ -1,8 +1,7 @@
-package com.ang.acb.addressbook.presentation.create
+package com.ang.acb.addressbook.domain
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.ang.acb.addressbook.FakeContactsRepository
-import com.ang.acb.addressbook.domain.SaveContactUseCase
 import com.ang.acb.addressbook.utils.TestCoroutineRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
@@ -14,26 +13,25 @@ import org.junit.Rule
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class CreateContactViewModelTest {
-
+class SaveContactUseCaseTest {
     // Subject under test
-    private lateinit var viewModel: CreateContactViewModel
+    private lateinit var useCase: SaveContactUseCase
 
     // Use a fake repository to be injected into the use case
     private lateinit var fakeRepository: FakeContactsRepository
-
-    // Sets the main coroutines dispatcher for unit testing
-    @get:Rule
-    var testCoroutineRule = TestCoroutineRule()
 
     // Executes each task synchronously using Architecture Components
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
 
+    // Sets the main coroutines dispatcher for unit testing
+    @get:Rule
+    var testCoroutineRule = TestCoroutineRule()
+
     @Before
-    fun setupViewModel() {
+    fun setup() {
         fakeRepository = FakeContactsRepository()
-        viewModel = CreateContactViewModel(SaveContactUseCase(fakeRepository))
+        useCase = SaveContactUseCase(fakeRepository)
     }
 
     @Test
@@ -45,13 +43,14 @@ class CreateContactViewModelTest {
             val email = "janedoe@email.com"
             val phoneNumber = "12345"
             val address = "YO11 1AL"
-            viewModel.saveContact(firstName, lastName, email, phoneNumber, address)
+            val testId = useCase(firstName, lastName, email, phoneNumber, address)
 
             // When the contact is retrieved
             val loaded = fakeRepository.contacts.values.first()
 
             // Then the loaded data contains the expected values
             assertThat(loaded, notNullValue())
+            assertThat(loaded.id, `is`(testId))
             assertThat(loaded.firstName, `is`(firstName))
             assertThat(loaded.lastName, `is`(lastName))
             assertThat(loaded.email, `is`(email))
