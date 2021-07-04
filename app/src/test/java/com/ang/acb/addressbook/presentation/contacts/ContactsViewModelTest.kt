@@ -1,9 +1,8 @@
-package com.ang.acb.addressbook.contacts
+package com.ang.acb.addressbook.presentation.contacts
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.ang.acb.addressbook.domain.GetAllContactsUseCase
 import com.ang.acb.addressbook.fakes.FakeContactsRepository
-import com.ang.acb.addressbook.presentation.contacts.ContactsViewModel
 import com.ang.acb.addressbook.utils.MainCoroutineRule
 import com.ang.acb.addressbook.utils.getOrAwaitValue
 import com.ang.acb.addressbook.utils.observeForTesting
@@ -15,6 +14,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
+@ExperimentalCoroutinesApi
 class ContactsViewModelTest {
 
     // Subject under test
@@ -24,7 +24,6 @@ class ContactsViewModelTest {
     private lateinit var fakeRepository: FakeContactsRepository
 
     // Set the main coroutines dispatcher for unit testing.
-    @ExperimentalCoroutinesApi
     @get:Rule
     var mainCoroutineRule = MainCoroutineRule()
 
@@ -64,7 +63,6 @@ class ContactsViewModelTest {
         contactsViewModel = ContactsViewModel(GetAllContactsUseCase(fakeRepository))
     }
 
-    @ExperimentalCoroutinesApi
     @Test
     fun loadAllContacts_loadingTogglesAndDataIsLoaded() {
         // Pause dispatcher so we can verify initial values
@@ -74,7 +72,6 @@ class ContactsViewModelTest {
         contactsViewModel.loadContacts()
         // Observe the contacts to keep LiveData emitting
         contactsViewModel.contacts.observeForTesting {
-
             // Then progress indicator is shown
             assertThat(contactsViewModel.loading.getOrAwaitValue(), `is`(true))
 

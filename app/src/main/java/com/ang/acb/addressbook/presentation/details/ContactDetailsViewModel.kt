@@ -28,8 +28,8 @@ class ContactDetailsViewModel @Inject constructor(
     val loading: LiveData<Boolean> = _loading
 
     fun getContact(contactId: Long) {
+        _loading.postValue(true)
         viewModelScope.launch {
-            _loading.postValue(true)
             getContactUseCase(contactId)
                 .catch {
                     Timber.e(it)
