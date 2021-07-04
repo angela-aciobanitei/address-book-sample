@@ -9,6 +9,9 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
 
+/**
+ * The binding for the repository is on its own module so that we can replace it easily in tests.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object RepoModule {

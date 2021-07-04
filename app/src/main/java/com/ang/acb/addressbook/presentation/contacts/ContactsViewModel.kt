@@ -33,8 +33,12 @@ class ContactsViewModel @Inject constructor(
     val navigation: LiveData<Event<Navigation>> = _navigation
 
     init {
+        loadContacts()
+    }
+
+    fun loadContacts() {
+        _loading.postValue(true)
         viewModelScope.launch {
-            _loading.postValue(true)
             getAllContactsUseCase()
                 .catch {
                     Timber.e(it)

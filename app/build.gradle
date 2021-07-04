@@ -55,11 +55,12 @@ android {
 
     // Sharing code between unit tests and instrumentation tests
     sourceSets {
-        androidTest {
-            java.srcDirs += "src/sharedTest/java"
-        }
+        String sharedTestDir = 'src/sharedTest/java'
         test {
-            java.srcDirs += "src/sharedTest/java"
+            java.srcDirs += sharedTestDir
+        }
+        androidTest {
+            java.srcDirs += sharedTestDir
         }
     }
 }
@@ -101,6 +102,7 @@ dependencies {
     testImplementation "junit:junit:$junit_version"
     testImplementation "androidx.room:room-testing:$room_version"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlin_coroutines_version"
+    testImplementation "androidx.arch.core:core-testing:$test_arch_core_version"
     testImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
     kaptTest "com.google.dagger:hilt-compiler:$hilt_version"
 
