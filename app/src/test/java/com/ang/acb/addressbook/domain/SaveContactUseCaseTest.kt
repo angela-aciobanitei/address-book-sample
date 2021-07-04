@@ -2,7 +2,7 @@ package com.ang.acb.addressbook.domain
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.ang.acb.addressbook.FakeContactsRepository
-import com.ang.acb.addressbook.utils.TestCoroutineRule
+import com.ang.acb.addressbook.MainCoroutineRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.hamcrest.CoreMatchers.`is`
@@ -26,7 +26,7 @@ class SaveContactUseCaseTest {
 
     // Sets the main coroutines dispatcher for unit testing
     @get:Rule
-    var testCoroutineRule = TestCoroutineRule()
+    var mainCoroutineRule = MainCoroutineRule()
 
     @Before
     fun setup() {
@@ -36,7 +36,7 @@ class SaveContactUseCaseTest {
 
     @Test
     fun testSaveNewContact() {
-        testCoroutineRule.runBlockingTest {
+        mainCoroutineRule.runBlockingTest {
             // Given a new contact that is saved
             val firstName = "Jane"
             val lastName = "Doe"

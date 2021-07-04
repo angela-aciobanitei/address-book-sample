@@ -5,7 +5,7 @@ import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import androidx.test.platform.app.InstrumentationRegistry
-import com.ang.acb.addressbook.utils.MainCoroutineRule
+import com.ang.acb.addressbook.MainCoroutineRule
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
@@ -37,7 +37,7 @@ class ContactsDataSourceTest {
     // Sets the main coroutines dispatcher to a TestCoroutineDispatcher
     // with a TestCoroutineScope.
     @get:Rule
-    var testCoroutineRule = MainCoroutineRule()
+    var mainCoroutineRule = MainCoroutineRule()
 
     @Before
     fun initDb() {
@@ -59,7 +59,7 @@ class ContactsDataSourceTest {
 
     @Test
     fun insertContactAndGetById() {
-        testCoroutineRule.runBlockingTest {
+        mainCoroutineRule.runBlockingTest {
             // Given a new contact that is saved
             val firstName = "Jane"
             val lastName = "Doe"
@@ -84,7 +84,7 @@ class ContactsDataSourceTest {
 
     @Test
     fun insertContactsAndLoadAll() {
-        testCoroutineRule.runBlockingTest {
+        mainCoroutineRule.runBlockingTest {
             // Given 3 contacts that are saved
             val testId1 = dataSource.saveContact(
                 firstName = "Jane",

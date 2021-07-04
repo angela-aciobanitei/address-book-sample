@@ -2,7 +2,7 @@ package com.ang.acb.addressbook.domain
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.ang.acb.addressbook.FakeContactsRepository
-import com.ang.acb.addressbook.utils.TestCoroutineRule
+import com.ang.acb.addressbook.MainCoroutineRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest
@@ -23,7 +23,7 @@ class GetContactUseCaseTest {
 
     // Sets the main coroutines dispatcher for unit testing
     @get:Rule
-    var testCoroutineRule = TestCoroutineRule()
+    var mainCoroutineRule = MainCoroutineRule()
 
     // Executes each task synchronously using Architecture Components
     @get:Rule
@@ -37,7 +37,7 @@ class GetContactUseCaseTest {
 
     @Test
     fun testGetContact() {
-        testCoroutineRule.runBlockingTest {
+        mainCoroutineRule.runBlockingTest {
             // Given a new contact that is saved
             val firstName = "Joe"
             val lastName = "Smith"

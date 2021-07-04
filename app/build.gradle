@@ -100,9 +100,13 @@ dependencies {
 
     // Testing
     testImplementation "junit:junit:$junit_version"
-    testImplementation "androidx.room:room-testing:$room_version"
+    testImplementation "org.hamcrest:hamcrest-library:$hamcrest_version"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlin_coroutines_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines_version"
+    testImplementation "androidx.test:core:$test_core_version"
+    testImplementation "androidx.test.ext:junit:$test_ext_junit_version"
     testImplementation "androidx.arch.core:core-testing:$test_arch_core_version"
+    testImplementation "androidx.room:room-testing:$room_version"
     testImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
     kaptTest "com.google.dagger:hilt-compiler:$hilt_version"
 
