@@ -17,6 +17,6 @@ interface ContactDao {
     fun getContact(contactId: Long): Flow<ContactEntity?>
 
     // Note: when the return type is Flow<List<T>>, querying an empty table emits an empty list.
-    @Query("SELECT * FROM contact")
+    @Query("SELECT * FROM contact ORDER BY last_name")
     fun getAllContacts(): Flow<List<ContactEntity>>
 }
