@@ -16,4 +16,5 @@
     <string name="save_contact_button_label">Save</string>
     <string name="invalid_email_error">Invalid email</string>
     <string name="required_field_error">Required</string>
+    <string name="no_contacts_hint">You have no contacts yet</string>
 </resources>

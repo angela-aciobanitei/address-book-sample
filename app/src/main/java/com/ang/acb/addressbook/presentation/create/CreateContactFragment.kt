@@ -64,7 +64,6 @@ class CreateContactFragment : Fragment(R.layout.fragment_create_contact) {
         })
     }
 
-    // todo refactor it later
     private fun saveContact() {
         binding.saveContactButton.setOnClickListener {
             val invalidFirstName = binding.tietFirstName.text.isNullOrBlank()
