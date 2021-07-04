@@ -1,9 +1,9 @@
 package com.ang.acb.addressbook.presentation.details
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.ang.acb.addressbook.FakeContactsRepository
 import com.ang.acb.addressbook.domain.GetContactUseCase
-import com.ang.acb.addressbook.fakes.FakeContactsRepository
-import com.ang.acb.addressbook.utils.MainCoroutineRule
+import com.ang.acb.addressbook.utils.TestCoroutineRule
 import com.ang.acb.addressbook.utils.getOrAwaitValue
 import com.ang.acb.addressbook.utils.observeForTesting
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -26,7 +26,7 @@ class ContactDetailsViewModelTest {
 
     // Sets the main coroutines dispatcher for unit testing
     @get:Rule
-    var mainCoroutineRule = MainCoroutineRule()
+    var mainCoroutineRule = TestCoroutineRule()
 
     // Executes each task synchronously using Architecture Components
     @get:Rule

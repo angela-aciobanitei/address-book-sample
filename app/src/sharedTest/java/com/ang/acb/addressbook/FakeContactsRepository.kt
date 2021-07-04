@@ -1,4 +1,4 @@
-package com.ang.acb.addressbook.fakes
+package com.ang.acb.addressbook
 
 import com.ang.acb.addressbook.domain.Contact
 import com.ang.acb.addressbook.domain.ContactsGateway
@@ -8,7 +8,7 @@ import java.util.*
 
 class FakeContactsRepository : ContactsGateway {
 
-    private var contacts: LinkedHashMap<Long, Contact> = LinkedHashMap()
+    var contacts: LinkedHashMap<Long, Contact> = LinkedHashMap()
     private var initialId = 0L
 
     override suspend fun saveContact(

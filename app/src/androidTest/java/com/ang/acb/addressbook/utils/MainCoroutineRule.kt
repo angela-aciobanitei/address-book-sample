@@ -19,7 +19,7 @@ import org.junit.runner.Description
  *
  * ```
  * @get:Rule
- * var mainCoroutineRule = MainCoroutineRule()
+ * var mainCoroutineRule = TestCoroutineRule()
  * ```
  *
  * Use it directly as a [TestCoroutineScope]:
