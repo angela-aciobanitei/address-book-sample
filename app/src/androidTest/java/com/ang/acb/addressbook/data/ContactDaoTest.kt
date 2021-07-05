@@ -5,6 +5,9 @@ import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import androidx.test.platform.app.InstrumentationRegistry
+import com.ang.acb.addressbook.data.contacts.ContactDao
+import com.ang.acb.addressbook.data.contacts.ContactDatabase
+import com.ang.acb.addressbook.data.contacts.ContactEntity
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers.`is`

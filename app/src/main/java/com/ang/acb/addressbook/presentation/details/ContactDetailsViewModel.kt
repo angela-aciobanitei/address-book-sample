@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ang.acb.addressbook.R
 import com.ang.acb.addressbook.domain.Contact
-import com.ang.acb.addressbook.domain.GetContactUseCase
+import com.ang.acb.addressbook.domain.details.GetContactUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect

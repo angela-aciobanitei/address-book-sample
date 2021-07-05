@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.ang.acb.addressbook.R
 import com.ang.acb.addressbook.databinding.FragmentCreateContactBinding
+import com.ang.acb.addressbook.domain.isValidEmail
 import com.ang.acb.addressbook.presentation.utils.EventObserver
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -69,7 +71,7 @@ class CreateContactFragment : Fragment(R.layout.fragment_create_contact) {
             val invalidFirstName = binding.tietFirstName.text.isNullOrBlank()
             val invalidLastName = binding.tietLastName.text.isNullOrBlank()
             val invalidEmail = binding.tietEmail.text.isNullOrBlank() ||
-                    !viewModel.isValidEmail(binding.tietEmail.text.toString())
+                    !binding.tietEmail.text.toString().isValidEmail()
             val invalidPhoneNumber = binding.tietPhoneNumber.text.isNullOrBlank()
             val invalidAddress = binding.tietAddress.text.isNullOrBlank()
             val requiredMessage = getString(R.string.required_field_error)

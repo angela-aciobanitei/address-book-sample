@@ -1,12 +1,11 @@
 package com.ang.acb.addressbook.presentation.create
 
-import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ang.acb.addressbook.R
-import com.ang.acb.addressbook.domain.SaveContactUseCase
+import com.ang.acb.addressbook.domain.create.CreateContactUseCase
 import com.ang.acb.addressbook.presentation.utils.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -15,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CreateContactViewModel @Inject constructor(
-    private val saveContactUseCase: SaveContactUseCase,
+    private val createContactUseCase: CreateContactUseCase,
 ) : ViewModel() {
 
     private val _loading = MutableLiveData<Boolean>()
@@ -37,14 +36,14 @@ class CreateContactViewModel @Inject constructor(
         viewModelScope.launch {
             _loading.postValue(true)
             try {
-                val newContactId = saveContactUseCase(
+                val newContactId = createContactUseCase(
                     firstName = firstName,
                     lastName = lastName,
                     email = email,
                     phoneNumber = phoneNumber,
                     address = address
                 )
-                if (newContactId.equals(0L).not()) {
+                if (newContactId != -1L) {
                     _navigation.postValue(Event(Navigation.Up))
                 } else {
                     _message.postValue(Event(R.string.save_contact_details_error_message))
@@ -56,9 +55,6 @@ class CreateContactViewModel @Inject constructor(
             _loading.postValue(false)
         }
     }
-
-    fun isValidEmail(email: String) =
-        email.trim().isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email.trim()).matches()
 
     sealed class Navigation {
         object Up : Navigation()

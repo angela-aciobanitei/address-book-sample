@@ -1,8 +1,9 @@
-package com.ang.acb.addressbook.domain
+package com.ang.acb.addressbook.domain.create
 
+import com.ang.acb.addressbook.domain.ContactsGateway
 import javax.inject.Inject
 
-class SaveContactUseCase @Inject constructor(
+class CreateContactUseCase @Inject constructor(
     private val contactsGateway: ContactsGateway,
 ) {
     suspend operator fun invoke(

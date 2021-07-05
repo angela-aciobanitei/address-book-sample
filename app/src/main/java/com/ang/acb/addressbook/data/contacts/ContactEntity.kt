@@ -1,4 +1,4 @@
-package com.ang.acb.addressbook.data
+package com.ang.acb.addressbook.data.contacts
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -6,6 +6,9 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import androidx.test.platform.app.InstrumentationRegistry
 import com.ang.acb.addressbook.MainCoroutineRule
+import com.ang.acb.addressbook.data.contacts.ContactDao
+import com.ang.acb.addressbook.data.contacts.ContactDatabase
+import com.ang.acb.addressbook.data.contacts.ContactsDataSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first

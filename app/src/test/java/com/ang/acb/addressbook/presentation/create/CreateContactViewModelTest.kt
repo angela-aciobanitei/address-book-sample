@@ -3,7 +3,7 @@ package com.ang.acb.addressbook.presentation.create
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.ang.acb.addressbook.FakeContactsRepository
 import com.ang.acb.addressbook.MainCoroutineRule
-import com.ang.acb.addressbook.domain.SaveContactUseCase
+import com.ang.acb.addressbook.domain.create.CreateContactUseCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.hamcrest.CoreMatchers.`is`
@@ -33,7 +33,7 @@ class CreateContactViewModelTest {
     @Before
     fun setupViewModel() {
         fakeRepository = FakeContactsRepository()
-        viewModel = CreateContactViewModel(SaveContactUseCase(fakeRepository))
+        viewModel = CreateContactViewModel(CreateContactUseCase(fakeRepository))
     }
 
     @Test

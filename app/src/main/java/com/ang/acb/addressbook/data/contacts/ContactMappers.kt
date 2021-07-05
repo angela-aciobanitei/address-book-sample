@@ -1,4 +1,4 @@
-package com.ang.acb.addressbook.data
+package com.ang.acb.addressbook.data.contacts
 
 import com.ang.acb.addressbook.domain.Contact
 
