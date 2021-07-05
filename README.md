@@ -12,3 +12,7 @@ The app uses clean architecture. For simplicity, it has 3 layers:
 * integration tests for view models
 * to handle coroutines testing I have used the TestCoroutineDispatcher provided by the "kotlinx-coroutines-test" library
 
+## Demo
+
+https://user-images.githubusercontent.com/37955938/124450479-5d8ae900-dd7c-11eb-9f84-60af4279511c.mp4
+
