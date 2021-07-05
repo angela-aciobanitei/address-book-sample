@@ -8,7 +8,7 @@ The app uses clean architecture. For simplicity, it has 3 layers:
 
 ## Testing
 * local unit tests to test the usecases; since every use case depends on the repository, in order to test in isolation, I  have created a fake repository that implements the same interface as the real repository, and thus can be swapped during testing via dependency injection (which is managed by Hilt)
-* local intrumented tests for DAO and the local data source
+* intrumented unit tests for DAO and the local data source
 * integration tests for view models
 * to handle coroutines testing I have used the TestCoroutineDispatcher provided by the "kotlinx-coroutines-test" library
 
