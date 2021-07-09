@@ -1,0 +1,14 @@
+plugins {
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${Kotlin.version}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Kotlin.coroutines}"
+    implementation "javax.inject:javax.inject:${Jvm.inject}"
+}

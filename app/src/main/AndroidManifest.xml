@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AddressBook">
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".MainActivity"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

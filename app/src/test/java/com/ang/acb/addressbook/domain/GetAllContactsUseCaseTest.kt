@@ -2,9 +2,7 @@ package com.ang.acb.addressbook.domain
 
 import com.ang.acb.addressbook.FakeContactsRepository
 import com.ang.acb.addressbook.MainCoroutineRule
-import com.ang.acb.addressbook.domain.contacts.GetAllContactsUseCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.notNullValue

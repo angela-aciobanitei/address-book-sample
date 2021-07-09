@@ -3,7 +3,8 @@ package com.ang.acb.addressbook.presentation.contacts
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.ang.acb.addressbook.FakeContactsRepository
 import com.ang.acb.addressbook.MainCoroutineRule
-import com.ang.acb.addressbook.domain.contacts.GetAllContactsUseCase
+import com.ang.acb.addressbook.contacts.ContactsViewModel
+import com.ang.acb.addressbook.domain.GetAllContactsUseCase
 import com.ang.acb.addressbook.utils.getOrAwaitValue
 import com.ang.acb.addressbook.utils.observeForTesting
 import kotlinx.coroutines.ExperimentalCoroutinesApi

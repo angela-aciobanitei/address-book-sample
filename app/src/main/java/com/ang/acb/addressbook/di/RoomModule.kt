@@ -2,8 +2,8 @@ package com.ang.acb.addressbook.di
 
 import android.content.Context
 import androidx.room.Room
-import com.ang.acb.addressbook.data.contacts.ContactDao
-import com.ang.acb.addressbook.data.contacts.ContactDatabase
+import com.ang.acb.addressbook.data.ContactDao
+import com.ang.acb.addressbook.data.ContactDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

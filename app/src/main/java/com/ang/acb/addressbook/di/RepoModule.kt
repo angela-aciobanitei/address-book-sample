@@ -1,6 +1,6 @@
 package com.ang.acb.addressbook.di
 
-import com.ang.acb.addressbook.data.contacts.ContactsRepository
+import com.ang.acb.addressbook.data.ContactsRepository
 import com.ang.acb.addressbook.domain.ContactsGateway
 import dagger.Module
 import dagger.Provides
